@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Primera_Tarea.Components;
 using Primera_Tarea.DAL;
 using Primera_Tarea.Models;
+using Primera_Tarea.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddRazorComponents()
 var ConStr = builder.Configuration.GetConnectionString("ConStr");
 builder.Services.AddDbContextFactory<Contexto>(o => o.UseSqlite(ConStr));
 builder.Services.AddScoped<Productos>();
+builder.Services.AddScoped<ProductosService>();
 
 
 var app = builder.Build();
