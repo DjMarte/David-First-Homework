@@ -10,6 +10,6 @@ namespace Primera_Tarea.DAL
             
         }
 
-        DbSet<Productos> Productos { get; set; }
+        public DbSet<Productos> Productos { get; set; }
     }
 }
