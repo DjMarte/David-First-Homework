@@ -1,10 +1,19 @@
+using Microsoft.EntityFrameworkCore;
 using Primera_Tarea.Components;
+using Primera_Tarea.DAL;
+using Primera_Tarea.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
 	.AddInteractiveServerComponents();
+
+
+var ConStr = builder.Configuration.GetConnectionString("ConStr");
+builder.Services.AddDbContextFactory<Contexto>(o => o.UseSqlite(ConStr));
+builder.Services.AddScoped<Productos>();
+
 
 var app = builder.Build();
 
